@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Ejercicio3</title>
+</head>
+<body>
+	<form action="ejercicio3.php" method= "post">
+		<h3>Calculadora</h3>
+		<label for="num1">numero1: </label>
+		<input type="number" name="num1" value="<?php echo $num1;?>">
+		<label for="num2">numero2: </label>
+		<input type="number" name="num2" value="<?php echo $num2;?>"><br><br>
+		
+		<input type="submit" name="suma" value= "Suma">
+		<input type="submit" name="resta" value= "Resta">
+		<input type="submit" name="multi" value= "Multiplicacion">
+		<input type="submit" name="div" value= "Division">
+		
+
+	</form>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<form action="ejercicio2.php" method="get">
+		<fieldset>
+			<legend>Formulario</legend>
+			Escriba los datos siguientes: <br><br>
+			<br> <b>Nombre: </b><input type="text" name="nombre"><br><br>
+			<b>Apellidos: </b><input type="text" name="apellido"><br><br>
+			<b>Edad: </b><input type="number" name="edad"><br><br> <b>Peso: 
+			</b><input type="number" name="peso"><br><br> <b>Sexo: </b><br>
+			<input type="radio" id="hombre" name="sexo" value="hombre"> <label
+				for="hombre">Hombre</label><br> <input type="radio" id="mujer"
+				name="sexo" value="mujer"> <label for="mujer">Mujer</label><br><br>
+			<b>Estado Civil:</b><br> 
+			<input type="radio" id="soltero"name="estado_civil" value="Soltero"> <label for="soltero">Soltero</label><br>
+			<input type="radio" id="casado" name="estado_civil" value="Casado">
+			<label for="casado">Casado</label><br>
+			<input type="radio" id="otro" name="estado_civil" value="Otro">
+			<label for="otro">Otro</label><br><br> 
+			<b>Aficiones:</b><br>
+			<input type="checkbox" id="cine" name="aficiones[]" value="Cine"> 
+			<label for="cine">Cine</label><br> 
+			<input type="checkbox" id="literatura" name="aficiones[]" value="Literatura"> 
+			<label for="literatura">Literatura</label><br> 
+			<input type="checkbox" id="tebeos" name="aficiones[]" value="Tebeos"> 
+			<label for="tebeos">Tebeos</label><br> 
+			<input type="checkbox" id="deportes" name="aficiones[]" value="Deportes"> 
+			<label for="deportes">Deportes</label><br> 
+			<input type="checkbox" id="musica" name="aficiones[]" value="Musica"> 
+			<label for="musica">Musica</label><br> 
+			<input type="checkbox" id="television" name="aficiones[]" value="Television"> 
+			<label for="television">Television</label><br><br>
+			
+			<input type="submit" value="Enviar" onclick="msg()">
+			<script>
+				function msg() {
+  				alert("Datos enviados!");
+				}
+			</script>
+			<input type="reset" name="reset" id="reset">
+		</fieldset>
+	</form>
+</body>
+</html>
