@@ -1,13 +1,12 @@
 
 <?php
-//http://localhost/Sitio%20CRUD/insert_test.php?dni=45152698d&nombre=mikel&apellidos=gazta&correo=mikelgazta&telf=654897456
 
-if (isset($_GET['dni']) && isset($_GET['nombre']) && isset($_GET['apellidos']) && isset($_GET['correo']) && isset($_GET['telf'])) {
-    $dni= $_GET['dni'];
-    $nombre = $_GET['nombre'];
-    $apellidos =$_GET['apellidos'];
-    $correo = $_GET['correo'];
-    $telf = $_GET['telf'];
+if (isset($_POST['dni']) && isset($_POST['nombre']) && isset($_POST['apellidos']) && isset($_POST['correo']) && isset($_POST['telf'])) {
+    $dni= $_POST['dni'];
+    $nombre = $_POST['nombre'];
+    $apellidos =$_POST['apellidos'];
+    $correo = $_POST['correo'];
+    $telf = $_POST['telf'];
 
     $mysqli = new mysqli("localhost", "root", "", "crud_alumnos");
     
@@ -35,6 +34,8 @@ if (isset($_GET['dni']) && isset($_GET['nombre']) && isset($_GET['apellidos']) &
     /* Sentencia no preparada */
      $resultado = $mysqli->query("SELECT * FROM alumnos");
      var_dump($resultado->fetch_all());
+     
+     header("location: select_test.php");
      
 }else{
     echo("<br>Error en parametros<br>");

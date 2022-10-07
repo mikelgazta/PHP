@@ -1,20 +1,23 @@
 <?php
-if (isset($_GET['id']) && isset($_GET['nombre'])) {
-    $id= $_GET['id'];
-    $nombre = $_GET['nombre'];
+if (isset($_POST['dni']) && isset($_POST['nombre']) && isset($_POST['apellidos']) && isset($_POST['correo']) && isset($_POST['telf'])) {
+    $dni=$_POST['dni'];
+    $nombre = $_POST['nombre'];
+    $apellidos = $_POST['apellidos'];
+    $correo = $_POST['correo'];
+    $telf = $_POST['telf'];
 
-    $mysqli = new mysqli("localhost", "root", "", "test");
+    $mysqli = new mysqli("localhost", "root", "", "crud_alumnos");
     if ($mysqli->connect_errno) {
         echo "Falló la conexión a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
     }
     
     /* Sentencia preparada, etapa 1: preparación */
-    if (!($sentencia = $mysqli->prepare("UPDATE test SET nombre=? WHERE id=?"))) {
+    if (!($sentencia = $mysqli->prepare("UPDATE alumnos SET nombre=?, apellidos=?, correo=?, telf=?  WHERE dni=?"))) {
         echo "Falló la preparación: (" . $mysqli->errno . ") " . $mysqli->error;
     }
     
     /* Sentencia preparada, etapa 2: vinculación y ejecución */
-    if (!$sentencia->bind_param("si", $nombre, $id)) {
+    if (!$sentencia->bind_param("sssss", $nombre, $apellidos, $correo, $telf, $dni)) {
         echo "Falló la vinculación de parámetros: (" . $sentencia->errno . ") " . $sentencia->error;
     }
     
@@ -28,12 +31,11 @@ if (isset($_GET['id']) && isset($_GET['nombre'])) {
     /* Sentencia no preparada */
 //     $resultado = $mysqli->query("SELECT * FROM test");
 //     var_dump($resultado->fetch_all());
-
+    header("location: select_test.php");
 }else{
     echo("<br>Error en parametros<br>");
     
 }
-
 
 
 ?>
