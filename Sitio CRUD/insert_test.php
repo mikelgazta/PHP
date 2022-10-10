@@ -1,12 +1,13 @@
 
 <?php
 
-if (isset($_POST['dni']) && isset($_POST['nombre']) && isset($_POST['apellidos']) && isset($_POST['correo']) && isset($_POST['telf'])) {
+if (isset($_POST['dni']) && isset($_POST['nombre']) && isset($_POST['apellidos']) && isset($_POST['correo']) && isset($_POST['telf']) && isset($_POST['profesor'])) {
     $dni= $_POST['dni'];
     $nombre = $_POST['nombre'];
     $apellidos =$_POST['apellidos'];
     $correo = $_POST['correo'];
     $telf = $_POST['telf'];
+    $profesor = $_POST['profesor'];
 
     $mysqli = new mysqli("localhost", "root", "", "crud_alumnos");
     
@@ -15,12 +16,12 @@ if (isset($_POST['dni']) && isset($_POST['nombre']) && isset($_POST['apellidos']
     }
     
     /* Sentencia preparada, etapa 1: preparación */
-    if (!($sentencia = $mysqli->prepare("INSERT INTO alumnos(dni, nombre, apellidos, correo, telf) VALUES (?, ?, ?, ?, ?)"))) {
+    if (!($sentencia = $mysqli->prepare("INSERT INTO alumnos(dni, nombre, apellidos, correo, telf, profesor) VALUES (?, ?, ?, ?, ?, ?)"))) {
         echo "Falló la preparación: (" . $mysqli->errno . ") " . $mysqli->error;
     }
     
     /* Sentencia preparada, etapa 2: vinculación y ejecución */
-    if (!$sentencia->bind_param("sssss", $dni, $nombre, $apellidos, $correo, $telf)) {
+    if (!$sentencia->bind_param("sssssi", $dni, $nombre, $apellidos, $correo, $telf, $profesor)) {
         echo "Falló la vinculación de parámetros: (" . $sentencia->errno . ") " . $sentencia->error;
     }
     

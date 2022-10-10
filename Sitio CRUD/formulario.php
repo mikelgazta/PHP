@@ -32,7 +32,8 @@ if (isset($_GET['dni'])) {
         $apellidos = $row['apellidos'];
         $correo = $row['correo'];
         $telf = $row['telf'];
-        echo($row['dni'] . " - " . $row['nombre'] . " - " . $row['apellidos'] . " - " . $row['correo'] . " - " . $row['telf']. " <button onclick=\"location.href='delete_test.php?dni=$dni'\">Borrar</button> ". " <button onclick=\"location.href='formulario.php?dni=$dni'\">Editar</button>");
+        $profesor = $row['profesor'];
+        //echo($row['dni'] . " - " . $row['nombre'] . " - " . $row['apellidos'] . " - " . $row['correo'] . " - " . $row['telf']. " - " . $row['profesor']. " <button onclick=\"location.href='delete_test.php?dni=$dni'\">Borrar</button> ". " <button onclick=\"location.href='formulario.php?dni=$dni'\">Editar</button>");
         
         //printf("%s - %s\n", $row["dni"], $row["nombre"], $row["apellidos"], $row["correo"], $row["telf"]);
         echo "<br>";
@@ -46,6 +47,7 @@ if (isset($_GET['dni'])) {
 		<br> Apellidos: <input type="text" name="apellidos" value=<?php echo $apellidos??''?>><br>
 		<br> Correo: <input type="email" name="correo"  value=<?php echo $correo??''?>><br>
 		<br> Telf.: <input type="tel" name="telf" value=<?php echo $telf??''?>><br>
+		<br> Profesor: <input type="text" name="profesor" value=<?php echo $profesor??''?>><br>
 		<br> <input type="submit" value="Enviar"> <input type="reset"
 			name="reset" id="reset"> <a href="select_test.php" class="button">Volver</a>
 	</form>
