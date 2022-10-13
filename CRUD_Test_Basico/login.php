@@ -8,7 +8,7 @@ if ($mysqli->connect_errno) {
     echo "Falló la conexión a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
 }
 ///consulta where nombre $user and pass $pass
-if (! ($sentencia = $mysqli->prepare("SELECT * FROM test WHERE nombre= $user && pass= $pass"))) {
+if (! ($sentencia = $mysqli->prepare("SELECT * FROM test WHERE nombre= ? && pass= ?"))) {
     echo "Falló la preparación: (" . $mysqli->errno . ") " . $mysqli->error;
 }
 if (! $sentencia->bind_param("si", $user, $pass)) {
